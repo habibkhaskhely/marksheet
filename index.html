@@ -26,6 +26,7 @@
     <div id="calculateInput">
         <div class="sDetials">
             <h2>Enter Student Details</h2>
+            <p>if you got under 33 marks one of them you will be failed</p>
         </div>
         <div class="sinput"><input type="text" id="sName" placeholder="Enter Name"></div>
         <div class="sinput"><input type="text" id="sClass" placeholder="Enter Class"></div>
@@ -85,9 +86,9 @@ div#resultsDiv,div#resultsFail,#resultsPass {
         let sEnglish = parseInt(document.getElementById("sEnglish").value);    
         
         let getResulst = sScience + sEnglish;
-        showResults.innerHTML=getResulst
-        
-        pName.innerHTML = sName
+        showResults.innerHTML=getResulst        
+        pName.innerHTML = sName;
+
         if(sScience >= 33 && sEnglish >= 33 ){
             calculateInput.style.display = "none";
             resultsDiv.style.display = "block"
