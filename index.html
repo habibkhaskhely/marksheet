@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="resultsDiv"> <!--show resluts -->       
+        <div class="sDetials">
+            <h2><span id="pName"></span> you are <span id="greet"> </span>  You got <br>
+                <span id="showResults"></span> Marks
+            </h2>
+        </div>
+        <div id="showResults"></div>
+        <div id="resultsFail"> <!-- IF passed -->       
+            <img src="https://cdn.pixabay.com/animation/2022/10/21/06/39/06-39-15-780_512.gif">
+        </div>
+        <div id="resultsPass"> <!-- IF passed -->   
+        <img src="https://cdn.pixabay.com/animation/2023/02/11/17/56/17-56-09-296_512.gif">
+        </div>
+    </div>
+
+    <div id="calculateInput">
+        <div class="sDetials">
+            <h2>Enter Student Details</h2>
+        </div>
+        <div class="sinput"><input type="text" id="sName" placeholder="Enter Name"></div>
+        <div class="sinput"><input type="text" id="sClass" placeholder="Enter Class"></div>
+        <div class="sinput"><input type="number" id="sRool" placeholder="Enter Roll Number"></div>
+        <div class="sinput"><input type="number"  id="sScience" min="0" max="100" placeholder="Enter Science Number"></div>
+        <div class="sinput"><input type="number"  id="sEnglish" min="0" max="100" placeholder="Enter English Number"></div>
+        <div class="sinput"><button onclick="resultsMarks()" id="results">Submit</button></div>
+        
+    </div>
+
+
+    <style>
+        .sDetials h2 {
+    text-align: center;
+}
+        button#results {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background: green;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+    border: 0px;
+}
+        div#calculateInput,div#resultsDiv,div#resultsFail {
+    max-width: 400px;
+    margin: 0 auto;
+}
+        body {
+    background: linear-gradient(45deg, #1f946c, transparent);
+}
+.sinput input {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #dedede;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+div#resultsDiv,div#resultsFail,#resultsPass {
+    display: none;
+}
+        </style>
+<script>
+    
+    
+    function resultsMarks(){  
+        let greet = document.getElementById("greet")
+        let calculateInput = document.getElementById("calculateInput")
+        let resultsDiv = document.getElementById("resultsDiv")
+        let resultsFail = document.getElementById("resultsFail")
+        let sName = document.getElementById("sName").value;;
+        let sClass = document.getElementById("sClass");
+        let sRool = document.getElementById("sRool");
+        let showResults = document.getElementById("showResults");
+        let sScience = parseInt(document.getElementById("sScience").value);
+        let sEnglish = parseInt(document.getElementById("sEnglish").value);    
+        
+        let getResulst = sScience + sEnglish;
+        showResults.innerHTML=getResulst
+        
+        pName.innerHTML = sName
+        if(sScience >= 33 && sEnglish >= 33 ){
+            calculateInput.style.display = "none";
+            resultsDiv.style.display = "block"
+            resultsPass.style.display = "block"
+            greet.innerText = "passed"
+            
+        }
+        else {
+            resultsDiv.style.display = "block"
+            calculateInput.style.display = "none";
+            resultsFail.style.display = "block";
+            greet.innerText = "Fail"
+        }
+    }
+</script>
+
+</body>
+</html>
